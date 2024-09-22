@@ -1,3 +1,7 @@
+<?php
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -5,6 +9,11 @@
     <title>Página Inicial</title>
 </head>
 <body>
-    <h1>Bem-vindo à Página Inicial!</h1>
+    <header>
+        <?php if (isset($_SESSION['email'])): ?>
+            <p>Bem-vindo, <?php echo htmlspecialchars($_SESSION['email']); ?>!</p>
+        <?php endif; ?>
+        <a href="/logout">sair agora</a>
+    </header>   
 </body>
 </html>

@@ -1,6 +1,4 @@
 <?php
-
-
 require_once '../vendor/autoload.php'; // Autoload do Composer
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../'); // Carrega o .env
 $dotenv->load(); // Carrega as variáveis de ambiente

@@ -1,15 +1,17 @@
 <?php
 require_once "/home/wagner/Downloads/Mini-FrameWork/app/controller/UserController.php";
-
+session_start();
 $message = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $_POST['nome'];
     $email = $_POST['email'];
     $senha = $_POST['senha'];
-
+    $_SESSION['email'] = $email ;
     $userController = new UserController();
-    $message = $userController->registerUser($nome, $email, $senha);
+    $message = $userController->login($email, $senha);
+    header("Location: /");
+    exit();
 }
 ?>
 
@@ -17,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Cadastro de Usuário</title>
+    <title>logar  Usuário</title>
 </head>
 <body>
     <h1>Cadastro de Usuário</h1>
@@ -25,9 +27,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <p><?php echo $message; ?></p>
     <?php endif; ?>
     <form action="" method="POST">
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" required>
-        <br>
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
         <br>

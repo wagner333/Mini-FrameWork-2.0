@@ -4,8 +4,9 @@
 $rotas = [
     '/' => 'home',
     '/sobre' => 'sobre',
-    '/contato' => 'contato',
+    '/login' => 'login',
     '/cadastro' => 'cadastro',
+    '/logout' => 'logout'
 ];
 
 function cadastro(){
@@ -20,8 +21,11 @@ function sobre() {
     require '../app/views/sobre.php'; // Carrega a view da página sobre
 }
 
-function contato() {
-    require '../app/views/contato.php'; // Carrega a view da página de contato
+function login() {
+    require '../app/views/login.php'; // Carrega a view da página de contato
+}
+function logout() {
+    require '../app/views/logout.php'; // Carrega a view da página de contato
 }
 
 function gerenciarRotas($url) {

@@ -1,5 +1,5 @@
 <?php
-require_once '../model/UserModel.php';
+require_once '/home/wagner/Downloads/Mini-FrameWork/app/model/UserModel.php';
 
 class UserController {
     private $userModel;
@@ -9,17 +9,28 @@ class UserController {
     }
 
     public function registerUser($nome, $email, $senha) {
-        // Verifica se o usuário já existe
+        
         if ($this->userModel->userExists($email)) {
             return "Erro: Usuário com este e-mail já existe.";
         }
 
-        // Se não existir, cria o usuário
+       
         if ($this->userModel->createUser($nome, $email, $senha)) {
             return "Parabéns, cadastrado com sucesso!";
         } else {
             return "Erro ao cadastrar usuário.";
         }
     }
+
+   public function login($email, $senha){
+    if($this->userModel->login($email, $senha)){
+        return"login realizado";
+
+    }else{
+        return "Erro ao logar";
+        
+    }
+
+   }
 }
 ?>

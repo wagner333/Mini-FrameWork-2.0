@@ -1,7 +1,7 @@
 <?php
 // core/database.php
 
-require '../vendor/autoload.php'; // Certifique-se de que o autoload do Composer está incluído
+require_once '../vendor/autoload.php'; // Certifique-se de que o autoload do Composer está incluído
 
 function conectarMongoDB() {
     $host = $_ENV['DB_HOST'] ?? '127.0.0.1'; // Valor padrão
